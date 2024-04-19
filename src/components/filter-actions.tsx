@@ -14,7 +14,7 @@ export const FilterActions = ({ setFilter, filter }: FilterActionProps) => {
 	const selectFilter = (filter: Filter) => () => setFilter(filter)
 
 	return (
-		<div className='ml-auto flex w-full max-w-[300px] items-center'>
+		<div className='flex w-full max-w-[300px] items-center md:ml-auto'>
 			{filterActionButtonList.map(({ label, filterValue }) => (
 				<Button
 					key={filterValue}

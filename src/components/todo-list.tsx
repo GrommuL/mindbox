@@ -52,13 +52,16 @@ export const TodoList = ({ todos, setTodos, filter, setFilter }: TodoListProps) 
 					))}
 				</div>
 			)}
-			<div className='flex items-center justify-between text-[15px]'>
-				{filteredTodos.length > 0 && <span className=' min-w-[150px] text-primary-dark'>{`${filteredTodos.length} items left`}</span>}
+			<div className='flex flex-col items-center justify-between text-[15px] md:flex-row'>
+				{filteredTodos.length > 0 && <span className='hidden min-w-[150px] text-primary-dark md:flex'>{`${filteredTodos.length} items left`}</span>}
 				<FilterActions setFilter={setFilter} filter={filter} />
 
-				<Button variant='outline' onClick={clearAllCompletedTodos}>
-					Clear completed
-				</Button>
+				<div className='flex w-full items-center justify-between md:w-max'>
+					{filteredTodos.length > 0 && <span className=' text-primary-dark sm:min-w-[150px] md:hidden'>{`${filteredTodos.length} items left`}</span>}
+					<Button variant='outline' onClick={clearAllCompletedTodos}>
+						Clear completed
+					</Button>
+				</div>
 			</div>
 		</>
 	)
